@@ -48,22 +48,22 @@ trend_breakout_framework/
 │   └── report.ipynb           # Jupyter notebook — equity curve, drawdowns, summaries
 │
 ├── strategies/               # Trading strategies
-│   └── breakout_strategy.py   # ✅ PortfolioBreakoutStrategy
+│   └── breakout_strategy.py   # PortfolioBreakoutStrategy
 │
 ├── utils/                    # Supporting tools
-│   ├── data_loader.py         # ✅ Loads data, auto-download if missing
-│   ├── walkforward.py         # ✅ Walkforward with fixed parameters
-│   ├── walkforward_optimizer.py # ✅ Walkforward with parameter optimization
-│   ├── grid_optimizer.py      # ✅ Grid search optimizer (Sharpe, Win Rate, etc.)
-│   ├── performance.py         # ✅ Performance summary + equity curves
+│   ├── data_loader.py         # Loads data, auto-download if missing
+│   ├── walkforward.py         # Walkforward with fixed parameters
+│   ├── walkforward_optimizer.py # Walkforward with parameter optimization
+│   ├── grid_optimizer.py      # Grid search optimizer (Sharpe, Win Rate, etc.)
+│   ├── performance.py         # Performance summary + equity curves
 │   ├── plot_results.py        # (Optional) Entry/exit plotting
-│   └── broker_models.py       # ✅ Commission, slippage, margin models
+│   └── broker_models.py       # Commission, slippage, margin models
 │
-├── main.py                   # ✅ Main script — runs backtest, walkforward, optimizer
+├── main.py                   # Main script — runs backtest, walkforward, optimizer
 │
-├── requirements.txt           # ✅ Dependencies
-├── .gitignore                 # ✅ Exclude .venv, data, reports, pycache
-└── README.md                  # ✅ Full documentation
+├── requirements.txt           # Dependencies
+├── .gitignore                 # Exclude .venv, data, reports, pycache
+└── README.md                  # Full documentation
 
 ```
 
