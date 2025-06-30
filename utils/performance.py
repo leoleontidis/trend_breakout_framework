@@ -3,7 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-
 def performance_summary(trade_logs):
     if isinstance(trade_logs, dict):
         logs = pd.concat([pd.DataFrame(v) for v in trade_logs.values()], ignore_index=True)

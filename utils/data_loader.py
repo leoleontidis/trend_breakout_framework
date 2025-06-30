@@ -2,7 +2,6 @@ import os
 import pandas as pd
 import yfinance as yf
 
-
 def load_price_data(symbol, interval="1d", start="2010-01-01", end="2025-12-31"):
     folder = f"data/{interval}"
     os.makedirs(folder, exist_ok=True)
@@ -30,12 +29,10 @@ def load_price_data(symbol, interval="1d", start="2010-01-01", end="2025-12-31")
             print(f"[ERROR] - Failed to download {symbol}: {e}")
             raise
 
-    # ✅ Ensure columns are numeric
     for col in ['Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors='coerce')
 
-    # ✅ Drop NaNs
     df = df.dropna()
 
     return df

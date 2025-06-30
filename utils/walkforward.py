@@ -2,13 +2,11 @@ import pandas as pd
 import backtrader as bt
 from datetime import timedelta
 
-
 def run_walkforward(strategy_class, data_dict, start_date, end_date, 
                     train_years=2, test_months=6, 
                     initial_cash=100000, **strategy_params):
     
     results = []
-
     train_start = pd.to_datetime(start_date)
 
     while True:
@@ -53,7 +51,6 @@ def run_walkforward(strategy_class, data_dict, start_date, end_date,
             'test_end': test_end.date(),
             'pnl': pnl
         })
-
         train_start = train_start + pd.DateOffset(months=test_months)
 
     return pd.DataFrame(results)

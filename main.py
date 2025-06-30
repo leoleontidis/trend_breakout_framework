@@ -130,7 +130,6 @@ def run_backtest():
 
     wf_optimization_results.to_csv('reports/walkforward_optimizer_results.csv', index=False)
 
-    # ✅ Parameter grid
     param_grid = {
         'breakout_window': [10, 20, 30],
         'trailing_stop_pct': [0.02, 0.03, 0.05],
@@ -138,7 +137,6 @@ def run_backtest():
         'contract_multipliers': [contract_multipliers]
     }
 
-    # ✅ Run the grid search
     grid_results = run_grid_search(
         strategy_class=PortfolioBreakoutStrategy,
         data_dict=data_dict,
@@ -146,13 +144,12 @@ def run_backtest():
         initial_cash=config['initial_cash']
     )
 
-    # ✅ Apply composite scoring
     weights = {
         'PnL': 1.0,
         'Sharpe': 1.5,
         'Win_Rate': 1.0,
         'Profit_Factor': 1.0,
-        'Max_Drawdown': -2.0  # Penalize drawdown heavily
+        'Max_Drawdown': -2.0
     }
 
     scored_results = add_composite_score(grid_results, weights=weights)
@@ -161,12 +158,9 @@ def run_backtest():
 
     scored_results.to_csv('reports/grid_search_with_scores.csv', index=False)
 
-    # ✅ Plot heatmaps
     plot_heatmap(scored_results, x='breakout_window', y='trailing_stop_pct', metric='PnL')
     plot_heatmap(scored_results, x='breakout_window', y='trailing_stop_pct', metric='Sharpe')
     plot_heatmap(scored_results, x='breakout_window', y='trailing_stop_pct', metric='Composite_Score')
-
-
 
 if __name__ == '__main__':
     run_backtest()

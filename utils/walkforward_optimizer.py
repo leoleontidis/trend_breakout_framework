@@ -2,7 +2,6 @@ import pandas as pd
 import itertools
 import backtrader as bt
 
-
 def compute_pnl(strategy_class, data_dict, params, initial_cash):
     cerebro = bt.Cerebro()
     cerebro.broker.set_cash(initial_cash)
@@ -20,7 +19,6 @@ def compute_pnl(strategy_class, data_dict, params, initial_cash):
         pnl = None
 
     return pnl
-
 
 def run_walkforward_optimizer(strategy_class, data_dict, start_date, end_date,
                             param_grid, train_years=2, test_months=6,
@@ -42,7 +40,7 @@ def run_walkforward_optimizer(strategy_class, data_dict, start_date, end_date,
         print(f"[WALKFORWARD OPTIMIZER] - Train: {train_start.date()} to {train_end.date()}")
         print(f"[WALKFORWARD OPTIMIZER] - Test: {train_end.date()} to {test_end.date()}")
 
-        # Prepare train data
+        # Train data
         train_data = {
             sym: df[(df.index >= train_start) & (df.index <= train_end)]
             for sym, df in data_dict.items()
@@ -61,13 +59,11 @@ def run_walkforward_optimizer(strategy_class, data_dict, start_date, end_date,
 
         print(f"[WALKFORWARD OPTIMIZER] - Best params for train: {best_params} with PnL {best_pnl}")
 
-        # Prepare test data
         test_data = {
             sym: df[(df.index >= train_end) & (df.index <= test_end)]
             for sym, df in data_dict.items()
         }
 
-        # Apply best params to test window
         test_pnl = compute_pnl(strategy_class, test_data, best_params, initial_cash)
         print(f"[WALKFORWARD OPTIMIZER] - Test PnL: {test_pnl}")
 

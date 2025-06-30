@@ -6,7 +6,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-
 def compute_metrics(strategy_class, data_dict, params, initial_cash):
     cerebro = bt.Cerebro()
     cerebro.broker.set_cash(initial_cash)
@@ -122,4 +121,3 @@ def plot_heatmap(results_df, x, y, metric='PnL', subgroup='risk_per_trade'):
         plt.ylabel(y)
         plt.tight_layout()
         plt.show()
-

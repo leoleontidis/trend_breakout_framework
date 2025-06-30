@@ -1,6 +1,5 @@
 import backtrader as bt
 
-
 class FuturesCommission(bt.CommInfoBase):
     """
     A commission and margin model for futures contracts.
