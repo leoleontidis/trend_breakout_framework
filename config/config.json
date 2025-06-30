@@ -1,0 +1,18 @@
+{
+  "strategy": {
+    "breakout_window": 20,
+    "trailing_stop_pct": 0.03,
+    "risk_per_trade": 0.01
+  },
+  "symbols": [
+    { "symbol": "MES", "contract_multiplier": 5 },
+    { "symbol": "MNQ", "contract_multiplier": 2 },
+    { "symbol": "MGC", "contract_multiplier": 10 },
+    { "symbol": "CL", "contract_multiplier": 100 },
+    { "symbol": "M6E", "contract_multiplier": 12500 }
+  ],
+  "timeframe": "1d",
+  "start_date": "2020-01-01",
+  "end_date": "2025-06-30",
+  "initial_cash": 100000
+}
